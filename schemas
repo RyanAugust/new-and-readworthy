@@ -1,0 +1,16 @@
+CREATE TABLE sources
+(name TEXT NOT NULL,
+type TEXT NOT NULL,
+connect_point TEXT NOT NULL,
+status BOOLEAN NOT NULL,
+insert_time DATETIME NOT NULL);
+CREATE TABLE articles
+(name TEXT NOT NULL,
+source TEXT NOT NULL,
+connect_point TEXT NOT NULL,
+insert_time DATETIME NOT NULL,
+uploaded BOOLEAN NOT NULL,
+upload_time DATETIME,
+FOREIGN KEY (source)
+REFERENCES sources (name)
+);
